@@ -285,10 +285,10 @@ class CameraUtil(private val activity: Activity) : DefaultLifecycleObserver {
             }
         }
 
-    fun takePhotoCenterCrop(result: (Bitmap) -> Unit)= coroutineScope?.launch(Dispatchers.IO) {
+    fun takePhotoCenterCrop(height: Int, width: Int, result: (Bitmap) -> Unit)= coroutineScope?.launch(Dispatchers.IO) {
         withContext(Dispatchers.Main) {
             viewFinder?.bitmap?.let { bitMap ->
-                result(ScaleCenterCrop()(bitMap, 160, 260))
+                result(ScaleCenterCrop()(bitMap, height, width))
             }
         }
     }
