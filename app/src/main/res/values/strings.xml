@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SampleCameraXDNI</string>
+    <string name="mirror">Mirror</string>
+</resources>
