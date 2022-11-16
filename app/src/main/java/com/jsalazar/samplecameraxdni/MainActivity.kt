@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
                 Log.d(CameraUtil.TAG, msg)
             }*/
-            cameraUtil.takePhotoCenterCrop(160, 260) { bitMap ->
+            cameraUtil.takePhotoCenterCrop(480, 720) { bitMap ->
                 binding.imgBit.setImageBitmap(bitMap)
             }
         }

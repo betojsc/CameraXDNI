@@ -95,7 +95,7 @@ class CameraUtil(private val activity: Activity) : DefaultLifecycleObserver {
         }
 
         mPreviewDisplay =
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 activity.display
             } else {
                 activity.windowManager.defaultDisplay
@@ -277,7 +277,7 @@ class CameraUtil(private val activity: Activity) : DefaultLifecycleObserver {
             File(outputDirectory).mkdirs()
             val file = File(outputDirectory, "$fileName.jpg")
             val stream: OutputStream = FileOutputStream(file)
-            withContext(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
                 viewFinder?.bitmap?.compress(Bitmap.CompressFormat.JPEG, 80, stream)
                 stream.flush()
                 stream.close()
